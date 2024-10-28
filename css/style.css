@@ -382,3 +382,43 @@ footer{
   color: #FFFFFF;
   padding-bottom: 24px;
 }
+
+.card-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card {
+  width: 30%;
+  background-color: #f9f9f9;
+border: 1px solid #ddd;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+}
+
+.card__info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.card__title{
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card__like-button{
+  background: none;
+  border:none;
+  font-size: 18px;
+  cursor: pointer;
+}
