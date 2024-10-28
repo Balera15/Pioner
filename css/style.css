@@ -395,12 +395,18 @@ footer{
 border: 1px solid #ddd;
 border-radius: 8px;
 overflow: hidden;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card__image {
   width: 100%;
-  height: auto;
+  height: 400px;
+  object-fit: contain;
 }
 
 .card__info{
