@@ -428,3 +428,12 @@ transition: box-shadow 0.3s ease;
   font-size: 18px;
   cursor: pointer;
 }
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
