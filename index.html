@@ -32,10 +32,8 @@
             </div>
             <!-- разделительная линия -->
             <hr class="header__line">
-
             <!-- второй слой хедера с меню -->
             <div class="header__menu">
-
                 <nav class="header__nav">
                     <ul class="header__list">
                         <li class="header__item">
@@ -66,16 +64,11 @@
                             <a href="#" class="header__link"><img src="./img/call.svg" alt="Перезвоните мне"
                                     class="header__item_callme fade-in"></a>
                         </li>
-
-
                     </ul>
-
                 </nav>
-
             </div>
         </div>
     </header>
-
     <!-- Основной контент -->
     <main>
         <div class="wrapper">
@@ -127,7 +120,6 @@
                             <p class="product__moreinf">Подробнее ></p>
                         </a>
                     </div>
-
                     <div class="product__card">
                         <a href="#" class="product__link">
                             <img src="./img/title-aero 1.png" alt="Датчики давления" class="product__card-img fade-in">
@@ -135,7 +127,6 @@
                             <p class="product__moreinf">Подробнее ></p>
                         </a>
                     </div>
-
                     <div class="product__card">
                         <a href="#" class="product__link">
                             <img src="./img/kamaz1 1.png" alt="ПИД-регуляторы" class="product__card-img fade-in">
@@ -143,7 +134,6 @@
                             <p class="product__moreinf">Подробнее ></p>
                         </a>
                     </div>
-
                     <div class="product__card">
                         <a href="#" class="product__link">
                             <img src="./img/turbo 1.png" alt="Калибратор давления" class="product__card-img fade-in">
@@ -151,7 +141,6 @@
                             <p class="product__moreinf">Подробнее ></p>
                         </a>
                     </div>
-
                     <div class="product__card">
                         <a href="#" class="product__link">
                             <img src="./img/main-slide-power 1.png" alt="Корректор расхода газа"
@@ -160,7 +149,6 @@
                             <p class="product__moreinf">Подробнее ></p>
                         </a>
                     </div>
-
                     <div class="product__card">
                         <a href="#" class="product__link">
                             <img src="./img/engine 1.png" alt="Манометры" class="product__card-img fade-in">
@@ -170,14 +158,12 @@
                     </div>
                 </div>
             </section>
-
             <section class="map">
                 <h2 class="second_title">Представительства</h2>
                 <img src="./img/Group 32.svg" alt="" class="map-img fade-in">
             </section>
             <section class="news">
                 <h2 class="second_title">Новости</h2>
-
                 <div class="news__container">
                     <div class="news__card">
                         <a href="#" class="news__link">
@@ -193,7 +179,6 @@
                             </div>
                         </a>
                     </div>
-                    
                     <div class="news__card">
                         <a href="#" class="news__link">
                             <img src="./img/greg-rosenke-xoxnfVIE7Qw-unsplash 1.jpg" alt="Поздравляем" class="news_card-img fade-in">
@@ -223,37 +208,10 @@
                     </div>
                 </div>
             </section>
-
-
-
-
-
         </div>
     </main>
-    <div class ="card-container">
-        <div class = "card">
-            <img src = "./img/kamaz1 1.png" alt = "Картинка 1" class="card__image fade-in">
-            <div class = "card__info">
-                <p class = "card__title"> Название 1</p>
-                <button class ="card__like-button">LIKE</button>
-            </div>
-        </div>
-        <div class = "card">
-            <img src = "./img/title-aero 1.png" alt = "Картинка 2" class="card__image fade-in">
-            <div class = "card__info">
-                <p class = "card__title"> Название 2</p>
-                <button class ="card__like-button">LIKE</button>
-            </div>
-        </div>
-        <div class = "card">
-            <img src = "./img/main-slide-power 1.png" alt = "Картинка 3" class="card__image fade-in">
-            <div class = "card__info">
-                <p class = "card__title"> Название 3</p>
-                <button class ="card__like-button">LIKE</button>
-            </div>
-        </div>
-
-    </div>
+    <!--Карточки-->
+    <div id="card-container"></div>
     <!-- Футер -->
     <footer>
         <div class="wrapper">
@@ -292,16 +250,6 @@
         <p class="footer__end">1994 — 2020 ООО «ПИОНЕР»</p>   
         </div>
     </footer>
-    <script>
-        window.onload = function () {
-  const images = document.querySelectorAll('.fade-in');
-  
-  setTimeout(() => {
-    images.forEach(image => {
-      image.classList.add('visible');
-    });
-  }, 500); // 500 миллисекунд задержки перед началом появления
-};
-    </script>
-    
+    <!--Java-->
+    <script src="script.js"> </script>
 </body>

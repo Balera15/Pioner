@@ -383,57 +383,112 @@ footer{
   padding-bottom: 24px;
 }
 
-.card-container{
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 столбца */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
 .card {
-  width: 30%;
-  background-color: #f9f9f9;
-border: 1px solid #ddd;
-border-radius: 8px;
-overflow: hidden;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-transition: box-shadow 0.3s ease;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  height: 350px; 
 }
 
-.card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card__image {
   width: 100%;
-  height: 400px;
-  object-fit: contain;
+  height: 200px; 
+  object-fit: contain; 
+  object-position: center; 
+  background-color: #e0e0e0; 
 }
 
-.card__info{
+.card__info {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+  padding: 15px;
+  flex-grow: 1; 
 }
 
-.card__title{
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card__like-button{
-  background: none;
-  border:none;
+.card__title {
   font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card__like-button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.fade-in {
-  opacity: 0;
-  transition: opacity 3s ease-in-out;
+.card__like-button:hover {
+  background-color: #0056b3;
 }
 
-.fade-in.visible {
-  opacity: 1;
+.card__skeleton {
+  background-color: #e0e0e0; 
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+  overflow: hidden;
+  animation: pulse 1.5s infinite ease-in-out;
 }
+
+.card__image-skeleton {
+  background-color: #d0d0d0;
+  height: 200px; 
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.card__title-skeleton {
+  background-color: #d0d0d0;
+  height: 20px;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.card__like-button-skeleton {
+  background-color: #d0d0d0;
+  height: 40px;
+  width: 120px;
+  border-radius: 20px;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #d0d0d0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
