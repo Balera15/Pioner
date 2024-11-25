@@ -1,46 +1,112 @@
-
-.card-container{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:20px;
-  margin: 0 auto;
-  padding: 20 px;
-}
-
-
-.card {
-  width: 30%;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
+const cardsData = [
+  {
+    image: "./img/kamaz1 1.png",
+    title: "Название 1",
+    alt: "Картинка 1"
+  },
+  {
+    image: "./img/title-aero 1.png",
+    title: "Название 2",
+    alt: "Картинка 2"
+  },
+  {
+    image: "./img/main-slide-power 1.png",
+    title: "Название 3",
+    alt: "Картинка 3"
   }
+];
 
+const cardContainer = document.getElementById("card-container");
+let cardCount = 0;
+const maxCards = 50; 
+//карточки
+function createCard(cardData) {
+  const cardElement = document.createElement("div");
+  cardElement.classList.add("card");
 
-.card__info{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+  const imgElement = document.createElement("img");
+  imgElement.src = cardData.image;
+  imgElement.alt = cardData.alt;
+  imgElement.classList.add("card__image");
+
+  const cardInfo = document.createElement("div");
+  cardInfo.classList.add("card__info");
+
+  const cardTitle = document.createElement("p");
+  cardTitle.classList.add("card__title");
+  cardTitle.textContent = cardData.title;
+
+  const likeButton = document.createElement("button");
+  likeButton.classList.add("card__like-button");
+  likeButton.textContent = "LIKE";
+
+  cardInfo.appendChild(cardTitle);
+  cardInfo.appendChild(likeButton);
+  cardElement.appendChild(imgElement);
+  cardElement.appendChild(cardInfo);
+
+  return cardElement;
+}
+//скелет
+function createSkeleton() {
+  const skeletonElement = document.createElement("div");
+  skeletonElement.classList.add("card__skeleton");
+
+  const imageSkeleton = document.createElement("div");
+  imageSkeleton.classList.add("card__image-skeleton");
+
+  const titleSkeleton = document.createElement("div");
+  titleSkeleton.classList.add("card__title-skeleton");
+
+  const buttonSkeleton = document.createElement("div");
+  buttonSkeleton.classList.add("card__like-button-skeleton");
+
+  skeletonElement.appendChild(imageSkeleton);
+  skeletonElement.appendChild(titleSkeleton);
+  skeletonElement.appendChild(buttonSkeleton);
+
+  return skeletonElement;
+}
+//addskelet
+function addCard(cardData, delay) {
+  const skeleton = createSkeleton();
+  cardContainer.appendChild(skeleton);
+
+  //смена
+  setTimeout(() => {
+    const cardElement = createCard(cardData);
+    cardContainer.replaceChild(cardElement, skeleton);
+    setTimeout(() => {
+      cardElement.classList.add("visible");
+    }, 200); 
+  }, delay);
 }
 
-.card__title{
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+function getRandomCard() {
+  const randomIndex = Math.floor(Math.random() * cardsData.length);
+  return cardsData[randomIndex];
 }
-
-.card__like-button{
-  background: none;
-  border:none;
-  font-size: 18px;
-  cursor: pointer;
+//подгрузка при прокрутке
+function loadCards() {
+  if (cardCount < maxCards) {
+    let cardsToAdd = 3;
+    if (cardCount + cardsToAdd > maxCards) {
+      cardsToAdd = maxCards - cardCount;
+    }
+    for (let i = 0; i < cardsToAdd; i++) {
+      const randomCard = getRandomCard();
+      addCard(randomCard, 500 * i); 
+      cardCount++;
+    }
+  }
 }
-
-.card__image {
-  width: 100%;
-  height: 400px;
-  object-fit: contain;
+//проверка на низ страницы
+function isAtBottom() {
+  return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
 }
+window.addEventListener('scroll', () => {
+  if (isAtBottom() && cardCount < maxCards) {
+    loadCards();
+  }
+});
+loadCards();
