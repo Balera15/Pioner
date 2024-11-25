@@ -19,6 +19,7 @@ const cardsData = [
 const cardContainer = document.getElementById("card-container");
 let cardCount = 0;
 const maxCards = 6;
+
 // Функция для создания карточки
 function createCard(cardData) {
   const cardElement = document.createElement("div");
@@ -47,7 +48,8 @@ function createCard(cardData) {
 
   return cardElement;
 }
-//скелет
+
+// Скелет для загрузки
 function createSkeleton() {
   const skeletonElement = document.createElement("div");
   skeletonElement.classList.add("card__skeleton");
@@ -67,30 +69,49 @@ function createSkeleton() {
 
   return skeletonElement;
 }
-//карточка со скелетом
+
+// Добавление карточки со скелетом
 function addCard(cardData, delay) {
   const skeleton = createSkeleton();
-  cardContainer.appendChild(skeleton); 
-  //смена
+  cardContainer.appendChild(skeleton);
+
+  // Сменить скелет на карточку
   setTimeout(() => {
     const cardElement = createCard(cardData);
-    cardContainer.replaceChild(cardElement, skeleton); 
-    //анимация появления карточки
+    cardContainer.replaceChild(cardElement, skeleton);
+    // Анимация появления карточки
     setTimeout(() => {
       cardElement.classList.add("visible");
-    }, 100); //задержка
+    }, 100); // Задержка
   }, delay);
 }
-//рандом карточка
+
+// Получение случайной карточки
 function getRandomCard() {
   const randomIndex = Math.floor(Math.random() * cardsData.length);
   return cardsData[randomIndex];
 }
-//автоматическое добавление карточек с интервалом
-function startAddingCards() {
-  setInterval(() => {
-    const randomCard = getRandomCard(); 
-    addCard(randomCard, 2000); 
-  }, 3000); //+ карточка каждые 3 секунды
+
+// Подгрузка карточек при прокрутке страницы
+function loadCardsOnScroll() {
+  const scrollPosition = window.innerHeight + window.scrollY;
+  const bottomPosition = document.documentElement.scrollHeight;
+
+  // Если пользователь прокрутил страницу до конца
+  if (scrollPosition >= bottomPosition) {
+    // Добавить 3 карточки
+    for (let i = 0; i < 3; i++) {
+      if (cardCount < maxCards) {
+        const randomCard = getRandomCard();
+        addCard(randomCard, 500 * i); // Задержка для каждого добавления
+        cardCount++;
+      }
+    }
+  }
 }
-startAddingCards();
+
+// Слушаем событие прокрутки
+window.addEventListener('scroll', loadCardsOnScroll);
+
+// Изначально подгрузим несколько карточек
+loadCardsOnScroll();
