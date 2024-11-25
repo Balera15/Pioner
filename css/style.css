@@ -483,6 +483,29 @@ footer{
 
 }
 
+#callme-button{
+  background-color: #607CE6;
+  color:white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition:background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#callme-button:hover{
+background-color: #57638b;
+transform: scale(1.05);
+}
+
+#callme-button:focus{
+  outline: none;
+  box-shadow: 0 0 10px rgba(72, 211, 72, 0.7);
+}
+
 .feedback-menu {
   position: fixed;
   top: 50%;
