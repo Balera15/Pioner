@@ -1,21 +1,30 @@
-<li class="header__item">
-    <button id="callme-button" class="header__link">Перезвоните мне</button>
-</li>
+.feedback-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
-<!-- Скрытое меню обратной связи -->
-<div id="feedback-menu" class="feedback-menu" style="display:none;">
-    <h2>Обратная связь</h2>
-    <form>
-        <label for="name">Ваше имя:</label>
-        <input type="text" id="name" name="name">
-        
-        <label for="phone">Ваш телефон:</label>
-        <input type="tel" id="phone" name="phone">
-        
-        <label for="message">Сообщение:</label>
-        <textarea id="message" name="message"></textarea>
-        
-        <button type="submit">Отправить</button>
-    </form>
-    <button id="close-feedback">Закрыть</button>
-</div>
+.feedback-menu form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-menu form label {
+    margin-bottom: 5px;
+}
+
+.feedback-menu form input, .feedback-menu form textarea {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.feedback-menu button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
