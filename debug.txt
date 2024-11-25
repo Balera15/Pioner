@@ -92,29 +92,36 @@ function getRandomCard() {
   return cardsData[randomIndex];
 }
 
-// Подгрузка карточек при прокрутке страницы
-function loadCardsOnScroll() {
-  const scrollPosition = window.innerHeight + window.scrollY;
-  const bottomPosition = document.documentElement.scrollHeight;
+// Функция для подгрузки карточек
+function loadCards() {
+  // Добавление 3 карточек
+  let cardsToAdd = 3;
+  if (cardCount + cardsToAdd > maxCards) {
+    cardsToAdd = maxCards - cardCount;
+  }
 
-  // Если пользователь прокрутил страницу до конца
-  if (scrollPosition >= bottomPosition) {
-    // Добавить 3 карточки, если еще есть места
-    let cardsToAdd = 3;
-    if (cardCount + cardsToAdd > maxCards) {
-      cardsToAdd = maxCards - cardCount;
-    }
-
-    for (let i = 0; i < cardsToAdd; i++) {
-      const randomCard = getRandomCard();
-      addCard(randomCard, 500 * i); // Задержка для каждого добавления
-      cardCount++;
-    }
+  for (let i = 0; i < cardsToAdd; i++) {
+    const randomCard = getRandomCard();
+    addCard(randomCard, 500 * i); // Задержка для каждого добавления
+    cardCount++;
   }
 }
 
-// Слушаем событие прокрутки
-window.addEventListener('scroll', loadCardsOnScroll);
+// Используем IntersectionObserver для отслеживания, когда элемент становится видимым
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && cardCount < maxCards) {
+      loadCards(); // Когда контейнер видим, загружаем карточки
+    }
+  });
+}, { threshold: 1.0 }); // Отслеживаем, когда элемент полностью видим
+
+// Наблюдаем за элементом, который находится внизу списка карточек
+const sentinel = document.createElement('div');
+sentinel.classList.add('sentinel');
+cardContainer.appendChild(sentinel);
+
+observer.observe(sentinel);
 
 // Изначально подгрузим несколько карточек
-loadCardsOnScroll();
+loadCards();
