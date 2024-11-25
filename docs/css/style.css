@@ -1,0 +1,559 @@
+/* source-sans-3-regular - cyrillic_latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/source-sans-3-v15-cyrillic_latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* source-sans-3-600 - cyrillic_latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/source-sans-3-v15-cyrillic_latin-600.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* source-sans-3-700 - cyrillic_latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/source-sans-3-v15-cyrillic_latin-700.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-size: 16px;
+  /* line-height: 19.2px; */
+  font-weight: normal;
+  color: #333333;
+
+}
+
+header {
+  padding-top: 32px;
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-size: 16px;
+  /* line-height: 19.2px; */
+  font-weight: normal;
+  color: #333333;
+  /* position: fixed; */
+  top: 35px;
+  left: 0;
+  width: 100%;
+}
+
+/*контейнер для рамки внутри сайта*/
+.wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.header__first-layer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.header__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.header_menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.header__line {
+  height: 1px;
+  margin-top: 32px;
+
+}
+
+.header__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__item {
+  margin-right: 44px;
+}
+
+.header__item:last-child {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.header__link {
+  font-size: 16px;
+  line-height: 19.2px;
+  text-align: left;
+  color: #333333;
+  text-decoration: none;
+}
+
+.header__contact-link {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28.48px;
+  text-align: right;
+  color: #607CE6;
+}
+
+.header__contact {
+  text-align: right;
+  margin-left: 45px;
+}
+
+.main_title {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 72px;
+  text-align: left;
+  max-width: 580px;
+}
+
+.second_title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 57.6px;
+  text-align: left;
+  padding-bottom: 32px;
+}
+
+/* main text прописан в body */
+/* .main_text{
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 19.2px;
+    text-align: left;    
+  } */
+.second_text {
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: right;
+  color: #333333;
+}
+
+.hero_main_text {
+  max-width: 379px;
+  padding-top: 26px;
+}
+
+.text_hero {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+}
+
+.hero,
+.about {
+  padding-top: 80px;
+}
+
+.about_grid {
+  display: grid;
+  gap: 20px;
+  /* Расстояние между блоками */
+  grid-template-columns: repeat(2, 1fr);
+  /* Два столбца одинаковой ширины */
+  padding-bottom: 32px;
+}
+
+.about_text {
+  font-size: 16px;
+  line-height: 22.4px;
+  text-align: left;
+  font-weight: 400;
+  max-width: 580px;
+}
+
+
+.about_image {
+  max-width: 580px;
+}
+
+
+.product__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Три карточки в ряду */
+  gap: 20px;
+  /* Промежуток между карточками */
+  padding-bottom: 80px;
+}
+
+.product__card {
+  background: #F5F5F5;
+  max-width: 100%;
+  height: 435px;
+  padding: 30px;
+  /* Внутренние отступы */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.product__card-img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: auto;
+}
+
+.product__names {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 33.6px;
+  text-align: left;
+  margin-top: auto;
+
+}
+
+.product__moreinf {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #607CE6;
+  text-decoration: none;
+  margin-top: 12px;
+}
+
+.product__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  /* Убирает подчеркивание */
+  color: inherit;
+  /* Наследует цвет текста */
+  flex-grow: 1;
+  /* Заполняет оставшееся пространство */
+}
+
+.product__link:hover {
+  background-color: #f0f0f0;
+  /* Эффект при наведении */
+}
+
+.map-img {
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+.news__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Три карточки в ряду */
+  gap: 20px;
+  /* Промежуток между карточками */
+  padding-bottom: 80px;
+}
+
+.news__card {
+  background: #F5F5F5;
+  max-width: 100%;
+  height: 478px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news__link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news_card-img {
+  width: 100%;
+  height: auto;
+}
+
+.news__wrapper {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.news__text {
+  font-size: 20px;
+  line-height: 28px;
+  text-align: left;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.news__down {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.news__readmore {
+  color: #607CE6;
+}
+
+.news__date {
+  margin-left: auto;
+  color: #888888;
+}
+footer{
+  background-color: #333333;
+  padding-top: 56px;
+}
+.footer {
+  background-color: #333;
+  color: white;
+  position: relative;
+}
+
+.footer__container {
+  display: flex; /* Flexbox для контейнера */
+  align-items: flex-start; /* Выровнять элементы по началу */
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+.footer__logo {
+  margin-right: 20px; /* Отступ справа от логотипа */
+  display: flex;
+  align-items: center; /* Центрирование логотипа по вертикали */
+}
+
+.footer__menu {
+  display: flex; /* Flexbox для меню */
+  padding-bottom: 73px;
+}
+
+.footer__column {
+  margin-left: 57px; /* Отступ между колонками */
+}
+
+.footer__column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__column ul li {
+  margin-bottom: 24px;
+  max-width: 155px;}
+
+.footer__column a {
+  color: white;
+  text-decoration: none;
+}
+.footer__end{
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: center;
+  color: #FFFFFF;
+  padding-bottom: 24px;
+}
+
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 столбца */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  height: 350px; 
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card__image {
+  width: 100%;
+  height: 200px; 
+  object-fit: contain; 
+  object-position: center; 
+  background-color: #e0e0e0; 
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  flex-grow: 1; 
+}
+
+.card__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card__like-button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card__like-button:hover {
+  background-color: #0056b3;
+}
+
+.card__skeleton {
+  background-color: #e0e0e0; 
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+  overflow: hidden;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.card__image-skeleton {
+  background-color: #d0d0d0;
+  height: 200px; 
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.card__title-skeleton {
+  background-color: #d0d0d0;
+  height: 20px;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.card__like-button-skeleton {
+  background-color: #d0d0d0;
+  height: 40px;
+  width: 120px;
+  border-radius: 20px;
+}
+.card__loader {
+position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+width:50px;
+height:50px;
+background: none;
+display: block;
+}
+
+#callme-button{
+  background-color: #607CE6;
+  color:white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition:background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#callme-button:hover{
+background-color: #57638b;
+transform: scale(1.05);
+}
+
+#callme-button:focus{
+  outline: none;
+  box-shadow: 0 0 10px rgba(72, 211, 72, 0.7)
+}
+
+.feedback-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(91, 128, 250);
+  padding: 20px;
+  border: 1px solid #4b25b4;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.feedback-menu form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-menu form label {
+  margin-bottom: 5px;
+}
+
+.feedback-menu form input, .feedback-menu form textarea {
+  margin-bottom: 15px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.feedback-menu button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #d0d0d0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
