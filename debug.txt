@@ -18,7 +18,7 @@ const cardsData = [
 
 const cardContainer = document.getElementById("card-container");
 let cardCount = 0;
-const maxCards = 6;
+const maxCards = 6; // Ограничение на количество карточек
 
 // Функция для создания карточки
 function createCard(cardData) {
@@ -92,36 +92,34 @@ function getRandomCard() {
   return cardsData[randomIndex];
 }
 
-// Функция для подгрузки карточек
+// Подгрузка карточек при прокрутке страницы
 function loadCards() {
-  // Добавление 3 карточек
-  let cardsToAdd = 3;
-  if (cardCount + cardsToAdd > maxCards) {
-    cardsToAdd = maxCards - cardCount;
-  }
+  if (cardCount < maxCards) {
+    // Добавить 3 карточки
+    let cardsToAdd = 3;
+    if (cardCount + cardsToAdd > maxCards) {
+      cardsToAdd = maxCards - cardCount;
+    }
 
-  for (let i = 0; i < cardsToAdd; i++) {
-    const randomCard = getRandomCard();
-    addCard(randomCard, 500 * i); // Задержка для каждого добавления
-    cardCount++;
+    for (let i = 0; i < cardsToAdd; i++) {
+      const randomCard = getRandomCard();
+      addCard(randomCard, 500 * i); // Задержка для каждого добавления
+      cardCount++;
+    }
   }
 }
 
-// Используем IntersectionObserver для отслеживания, когда элемент становится видимым
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && cardCount < maxCards) {
-      loadCards(); // Когда контейнер видим, загружаем карточки
-    }
-  });
-}, { threshold: 1.0 }); // Отслеживаем, когда элемент полностью видим
+// Проверка достижения низа страницы
+function isAtBottom() {
+  return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+}
 
-// Наблюдаем за элементом, который находится внизу списка карточек
-const sentinel = document.createElement('div');
-sentinel.classList.add('sentinel');
-cardContainer.appendChild(sentinel);
-
-observer.observe(sentinel);
+// Слушаем событие прокрутки
+window.addEventListener('scroll', () => {
+  if (isAtBottom() && cardCount < maxCards) {
+    loadCards();
+  }
+});
 
 // Изначально подгрузим несколько карточек
 loadCards();
