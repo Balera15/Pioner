@@ -17,6 +17,8 @@ const cardsData = [
 ];
 
 const cardContainer = document.getElementById("card-container");
+let cardCount = 0;
+const maxCards = 6;
 
 // Функция для создания карточки
 function createCard(cardData) {
@@ -97,13 +99,16 @@ function loadCardsOnScroll() {
 
   // Если пользователь прокрутил страницу до конца
   if (scrollPosition >= bottomPosition) {
-    // Добавить 3 карточки
-    for (let i = 0; i < 3; i++) {
-      if (cardCount < maxCards) {
-        const randomCard = getRandomCard();
-        addCard(randomCard, 500 * i); // Задержка для каждого добавления
-        cardCount++;
-      }
+    // Добавить 3 карточки, если еще есть места
+    let cardsToAdd = 3;
+    if (cardCount + cardsToAdd > maxCards) {
+      cardsToAdd = maxCards - cardCount;
+    }
+
+    for (let i = 0; i < cardsToAdd; i++) {
+      const randomCard = getRandomCard();
+      addCard(randomCard, 500 * i); // Задержка для каждого добавления
+      cardCount++;
     }
   }
 }
