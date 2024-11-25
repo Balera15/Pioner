@@ -17,8 +17,6 @@ const cardsData = [
 ];
 
 const cardContainer = document.getElementById("card-container");
-let cardCount = 0;
-const maxCards = 6;
 
 // Функция для создания карточки
 function createCard(cardData) {
