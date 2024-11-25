@@ -17,7 +17,9 @@ const cardsData = [
 ];
 
 const cardContainer = document.getElementById("card-container");
-// Функция для создания карточки
+let cardCount = 0;
+const maxCards = 50; 
+//карточки
 function createCard(cardData) {
   const cardElement = document.createElement("div");
   cardElement.classList.add("card");
@@ -65,30 +67,46 @@ function createSkeleton() {
 
   return skeletonElement;
 }
-//карточка со скелетом
+//addskelet
 function addCard(cardData, delay) {
   const skeleton = createSkeleton();
-  cardContainer.appendChild(skeleton); 
+  cardContainer.appendChild(skeleton);
+
   //смена
   setTimeout(() => {
     const cardElement = createCard(cardData);
-    cardContainer.replaceChild(cardElement, skeleton); 
-    //анимация появления карточки
+    cardContainer.replaceChild(cardElement, skeleton);
     setTimeout(() => {
       cardElement.classList.add("visible");
-    }, 100); //задержка
+    }, 200); 
   }, delay);
 }
-//рандом карточка
+
 function getRandomCard() {
   const randomIndex = Math.floor(Math.random() * cardsData.length);
   return cardsData[randomIndex];
 }
-//автоматическое добавление карточек с интервалом
-function startAddingCards() {
-  setInterval(() => {
-    const randomCard = getRandomCard(); 
-    addCard(randomCard, 2000); 
-  }, 3000); //+ карточка каждые 3 секунды
+//подгрузка при прокрутке
+function loadCards() {
+  if (cardCount < maxCards) {
+    let cardsToAdd = 3;
+    if (cardCount + cardsToAdd > maxCards) {
+      cardsToAdd = maxCards - cardCount;
+    }
+    for (let i = 0; i < cardsToAdd; i++) {
+      const randomCard = getRandomCard();
+      addCard(randomCard, 500 * i); 
+      cardCount++;
+    }
+  }
 }
-startAddingCards();
+//проверка на низ страницы
+function isAtBottom() {
+  return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+}
+window.addEventListener('scroll', () => {
+  if (isAtBottom() && cardCount < maxCards) {
+    loadCards();
+  }
+});
+loadCards();

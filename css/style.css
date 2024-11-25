@@ -479,6 +479,40 @@ footer{
   width: 120px;
   border-radius: 20px;
 }
+.card__preloader {
+
+}
+
+.feedback-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(91, 128, 250);
+  padding: 20px;
+  border: 1px solid #4b25b4;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.feedback-menu form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-menu form label {
+  margin-bottom: 5px;
+}
+
+.feedback-menu form input, .feedback-menu form textarea {
+  margin-bottom: 15px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.feedback-menu button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
 
 @keyframes pulse {
   0% {
