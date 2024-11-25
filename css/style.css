@@ -464,6 +464,7 @@ footer{
   height: 200px; 
   width: 100%;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .card__title-skeleton {
@@ -479,8 +480,15 @@ footer{
   width: 120px;
   border-radius: 20px;
 }
-.card__preloader {
-
+.card__loader {
+position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+width:50px;
+height:50px;
+background: none;
+display: block;
 }
 
 #callme-button{
@@ -503,7 +511,7 @@ transform: scale(1.05);
 
 #callme-button:focus{
   outline: none;
-  box-shadow: 0 0 10px rgba(72, 211, 72, 0.7);
+  box-shadow: 0 0 10px rgba(72, 211, 72, 0.7)
 }
 
 .feedback-menu {

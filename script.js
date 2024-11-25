@@ -55,6 +55,12 @@ function createSkeleton() {
   const imageSkeleton = document.createElement("div");
   imageSkeleton.classList.add("card__image-skeleton");
 
+  const loaderGif = document.createElement("img");
+  loaderGif.src = "./img/preloader.gif";
+  loaderGif.alt = "Загрузка...";
+  loaderGif.classList.add("card__loader");
+  imageSkeleton.appendChild(loaderGif);
+
   const titleSkeleton = document.createElement("div");
   titleSkeleton.classList.add("card__title-skeleton");
 
