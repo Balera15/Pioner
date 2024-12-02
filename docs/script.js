@@ -107,6 +107,7 @@ window.addEventListener('scroll', () => {
   }
 });
 loadCards();
+
 //модальное окно с картинкой
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
