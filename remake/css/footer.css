@@ -1,0 +1,53 @@
+footer{
+  background-color: #333333;
+  padding-top: 56px;
+}
+.footer {
+  background-color: #333;
+  color: white;
+  position: relative;
+}
+
+.footer__container {
+  display: flex; /* Flexbox для контейнера */
+  align-items: flex-start; /* Выровнять элементы по началу */
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+.footer__logo {
+  margin-right: 20px; /* Отступ справа от логотипа */
+  display: flex;
+  align-items: center; /* Центрирование логотипа по вертикали */
+}
+
+.footer__menu {
+  display: flex; /* Flexbox для меню */
+  padding-bottom: 73px;
+}
+
+.footer__column {
+  margin-left: 57px; /* Отступ между колонками */
+}
+
+.footer__column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__column ul li {
+  margin-bottom: 24px;
+  max-width: 155px;}
+
+.footer__column a {
+  color: white;
+  text-decoration: none;
+}
+.footer__end{
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: center;
+  color: #FFFFFF;
+  padding-bottom: 24px;
+}
