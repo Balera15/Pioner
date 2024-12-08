@@ -2,17 +2,17 @@
 const cardsData = [
   {
     image: "./img/kamaz1 1.png",
-    title: "Название 1",
+    title: "Деталь 1",
     alt: "Картинка 1"
   },
   {
     image: "./img/title-aero 1.png",
-    title: "Название 2",
+    title: "Деталь 2",
     alt: "Картинка 2"
   },
   {
     image: "./img/main-slide-power 1.png",
-    title: "Название 3",
+    title: "Деталь 3",
     alt: "Картинка 3"
   }
 ];
@@ -30,7 +30,7 @@ function createCard(cardData) {
   imgElement.classList.add("card__image");
   //клик по ихображению
   imgElement.addEventListener("click", () => {
-    openModal(cardData.image); });
+    openModal(cardData.image, cardData.title); });
   const cardInfo = document.createElement("div");
   cardInfo.classList.add("card__info");
   const cardTitle = document.createElement("p");
@@ -111,11 +111,13 @@ loadCards();
 //модальное окно с картинкой
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
+const modaltext = document.getElementById("modal-text");
 const modalClose = document.getElementById("modal-close");
 //Открыть модальное окно с картинкой
-function openModal(imageSrc) {
+function openModal(imageSrc, cardTitle) {
   modal.style.display = "flex";
   modalImage.src = imageSrc;
+  modaltext.textContent = cardTitle;
 }
 //Закрыть
 modalClose.addEventListener("click", () => {
