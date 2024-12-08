@@ -8,8 +8,14 @@
     <!-- Подключение CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feedback.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
-
 <body>
     <header class="header">
         <div class="wrapper">
@@ -215,21 +221,24 @@
     <div id="modal" class="modal">
         <span id="modal-close" class="modal-close">&times;</span>
         <img id="modal-image" class="modal-image" src="" alt="">
+        <p id="modal-text" class="modal-text"></p>
     </div>
     <!--Обратная связь-->
-    <div id="feedback-menu" class="feedback-menu" style="display:none;">
-        <h2>Обратная связь</h2>
-        <form>
-        <label for="name">Ваше имя:</label>
-        <input type="text" id="name" name="name">
-        <label for="phone">Ваш телефон:</label>
-        <input type="tel" id="phone" name="phone">
-        <label for="message">Сообщение:</label>
-        <textarea id="message" name="message"></textarea>
-        <button type="submit">Отправить</button>
-    </form> 
-    <button id="close-feedback">Закрыть</button>
-    </div>
+<div class="feedback-menu" id="feedback-menu">
+    <form>
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+        <label for="email">Ваш Email</label>
+        <input type="email" id="email" name="email" placeholder="Введите ваш email">
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" placeholder="Введите ваше сообщение"></textarea>
+        <!-- Кнопки -->
+        <div class="feedback-menu-buttons">
+            <button type="submit">Отправить</button>
+            <button type="button" class="close-button" id="close-feedback">Закрыть</button>
+        </div>
+    </form>
+</div>
     <!-- Футер -->  
     <footer>
         <div class="wrapper">
